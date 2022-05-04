@@ -34,9 +34,18 @@ public class SpiesOnATrain {
     		
     		node = train.getHead();
     		for (int i = 0; i < clues.length; i++) {
-    			for (int j = 0; i < train.size(); i++) {
+    			for (int j = 0; j < train.size(); j++) {
+    				String[] answer = node.getValue().questionPassenger().split(" ");
+    				String name = answer[13];
+    				System.out.println(name);
+    				String answerClue = "";
+    				for (int k = answer.length-clues[i].length()-1; k < clues[i].length(); k++) {
+    					
+    				}
     				
+    				node = node.getNext();
     			}
+    			node = train.getHead();
     		}
     	
         return "";
