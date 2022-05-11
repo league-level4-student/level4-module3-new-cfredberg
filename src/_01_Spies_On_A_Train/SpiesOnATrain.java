@@ -40,8 +40,10 @@ public class SpiesOnATrain {
     				System.out.println(name);
     				String answerClue = "";
     				for (int k = answer.length-clues[i].length()-1; k < clues[i].length(); k++) {
-    					
+    					answerClue = answerClue + answer[i].split(" ")[k];
     				}
+    				System.out.println(answerClue);
+    				System.out.println("test");
     				
     				node = node.getNext();
     			}
