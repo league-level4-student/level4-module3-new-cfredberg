@@ -31,7 +31,7 @@ public class SpiesOnATrain {
     		for (int i = 0; i < clues.length; i++) {
     			System.out.println(clues[i]);
     		}
-    		
+    		System.out.println();
     		node = train.getHead();
     		for (int i = 0; i < clues.length; i++) {
     			for (int j = 0; j < train.size(); j++) {
@@ -39,11 +39,10 @@ public class SpiesOnATrain {
     				String name = answer[13];
     				System.out.println(name);
     				String answerClue = "";
-    				for (int k = answer.length-clues[i].length()-1; k < clues[i].length(); k++) {
-    					answerClue = answerClue + answer[i].split(" ")[k];
+    				for (int k = clues[i].split(" ").length; k < answer.length-clues[i].split(" ").length-1; k++) {
+    					answerClue = answerClue + answer[i];
     				}
     				System.out.println(answerClue);
-    				System.out.println("test");
     				
     				node = node.getNext();
     			}
