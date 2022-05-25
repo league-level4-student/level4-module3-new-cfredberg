@@ -23,6 +23,7 @@ public class SpiesOnATrain {
      */
     String findIntel(LinkedList<TrainCar> train, String[] clues) {
     		Node<TrainCar> node = train.getHead();
+    		HashMap<String, Integer> pairs = new HashMap<String, Integer>();
     		for (int i = 0; i < train.size(); i++) {
     			System.out.println(node.getValue().questionPassenger());
     			node = node.getNext();
@@ -39,10 +40,19 @@ public class SpiesOnATrain {
     				String name = answer[13];
     				System.out.println(name);
     				String answerClue = "";
-    				for (int k = clues[i].split(" ").length; k < answer.length-clues[i].split(" ").length-1; k++) {
-    					answerClue = answerClue + answer[i];
+    				for (int k = answer.length-clues[i].split(" ").length; k < answer.length; k++) {
+    					answerClue = answerClue + answer[k] + " ";
     				}
+    				answerClue = answerClue.trim();
+    				answerClue = answerClue.replaceAll("[.]", "");
     				System.out.println(answerClue);
+    				
+    				
+    				
+    				boolean inSet = false;
+    				if (pairs.containsKey(name)) {
+    					
+    				}
     				
     				node = node.getNext();
     			}
