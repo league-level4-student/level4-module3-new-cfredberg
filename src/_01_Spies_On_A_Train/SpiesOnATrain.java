@@ -47,19 +47,37 @@ public class SpiesOnATrain {
     				answerClue = answerClue.replaceAll("[.]", "");
     				System.out.println(answerClue);
     				
-    				
-    				
     				boolean inSet = false;
-    				if (pairs.containsKey(name)) {
-    					
+    				for (int k = 0; k < clues.length; k++) {
+    					if (answerClue.equals(clues[k])) {
+    						inSet = true;
+    					}
+    				}
+    				
+    				if (inSet == true) {
+    					if (pairs.containsKey(name)) {
+    						pairs.put(name, pairs.get(name)+1);
+    					}else {
+    						pairs.put(name, 1);
+    					}
     				}
     				
     				node = node.getNext();
     			}
     			node = train.getHead();
     		}
+    		
+    	String name = "";
+    	int value = 0;
     	
-        return "";
+    	for (String key : pairs.keySet()) {
+    		if (pairs.get(key) > value) {
+    			name = key;
+    			value = pairs.get(key);
+    		}
+    	}
+    	
+        return name;
 
     }
 
