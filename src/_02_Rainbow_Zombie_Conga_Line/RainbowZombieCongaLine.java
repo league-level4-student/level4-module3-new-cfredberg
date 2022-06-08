@@ -63,7 +63,15 @@ public class RainbowZombieCongaLine {
      * the conga line!
      */
     public void everyoneOut(Zombie dancer) {
-
+    	ZombieHatColor removeHat = dancer.getZombieHatColor();
+    	Node<Zombie> current = congaLine.getHead();
+    	for (int i = 0; i < congaLine.size(); i++) {
+    		if (current.getValue().getZombieHatColor() == removeHat) {
+    			current.getPrev().setNext(current.getNext());
+    			current.getNext().setPrev(current.getPrev());
+    		}
+    		current = current.getNext();
+    	}
     }
 
     /*
@@ -71,7 +79,7 @@ public class RainbowZombieCongaLine {
      * from the conga line!
      */
     public void youAreDone(Zombie dancer) {
-
+    	
     }
 
     /*
