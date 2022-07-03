@@ -79,6 +79,16 @@ public class RainbowZombieCongaLine {
      * from the conga line!
      */
     public void youAreDone(Zombie dancer) {
+    	boolean isRemoved = false;
+    	Node<Zombie> current = congaLine.getHead();
+    	for (int i = 0; i < congaLine.size(); i++) {
+    		if (current.getValue().getZombieHatColor() == dancer.getZombieHatColor() && isRemoved == false) {
+    			current.getPrev().setNext(current.getNext());
+    			current.getNext().setPrev(current.getPrev());
+    			isRemoved = true;
+    		}
+    		current = current.getNext();
+    	}
     	
     }
 
@@ -87,7 +97,28 @@ public class RainbowZombieCongaLine {
      * add one to the front, one to the end and one in the middle.
      */
     public void brains(Zombie dancer) {
-
+    	Zombie zom1 = new Zombie(dancer.getZombieHatColor());
+    	Zombie zom2 = new Zombie(dancer.getZombieHatColor());
+    	Node<Zombie> dancerN = new Node<Zombie>(dancer);
+    	Node<Zombie> zom1N = new Node<Zombie>(zom1);
+    	Node<Zombie> zom2N = new Node<Zombie>(zom2);
+    	Node<Zombie> current = congaLine.getHead();
+    	int lineSize = congaLine.size();
+    	for (int i = 0; i < lineSize; i++) {
+    		if (lineSize/2 == i) {
+    			dancerN.setNext(current.getNext());
+    			dancerN.setPrev(current);
+    			current.getNext().setPrev(dancerN);
+    			current.setNext(dancerN);
+    			current = current.getNext();
+    		}
+    		
+    		if (i == lineSize-1) {
+    			current.setNext(zom2N);
+    			zom2N.setPrev(current);
+    		}
+    		current = current.getNext();
+    	}
     }
 
     /*
@@ -95,7 +126,14 @@ public class RainbowZombieCongaLine {
      * color to the end of the line.
      */
     public void rainbowBrains(Zombie dancer) {
-
+    	Node<Zombie> zom = new Node<Zombie>(dancer);
+    	Node<Zombie> current = congaLine.getHead();
+    	
+//-----------------------------------Start-Here-Next-Class--------------------------------------------------------------
+    	
+    	for (ZombieHatColor color : ZombieHatColor.values()) {
+    		
+    	}
     }
 
     public LinkedList<Zombie> getCongaLine() {
