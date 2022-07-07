@@ -57,7 +57,7 @@ public class RainbowZombieDanceParty {
             }
 
             System.out.print("Action: " + zombieActions[randomAction]);
-            System.out.print(" | " + "Hat Color: " + hatColors[randomColor]);
+            System.out.print(" | " + "Hat Color: " + hatColors[randomColor]); 
 
             switch (zombieActions[randomAction]) {
 
