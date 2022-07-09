@@ -53,15 +53,19 @@ public class RainbowZombieCongaLine {
 				newPos.setPrev(current.getPrev());
 				current.getPrev().setNext(newPos);
 				current.setPrev(newPos);
+				break;
 			}else if (i == position && i == 0) {
 				newPos.setNext(current);
 				current.setPrev(newPos);
 				congaLine.setHead(newPos);
+				break;
 			}else if (i == position) {
 				current.setNext(newPos);
 				newPos.setPrev(current);
 				congaLine.setTail(newPos);
+				break;
 			}
+			System.out.println(i + ", " + position);
 			current = current.getNext();
 		}
 	}
@@ -75,10 +79,17 @@ public class RainbowZombieCongaLine {
 		Node<Zombie> current = congaLine.getHead();
 		for (int i = 0; i < congaLine.size(); i++) {
 			if (current.getValue().getZombieHatColor() == removeHat) {
-				current.getPrev().setNext(current.getNext());
-				current.getNext().setPrev(current.getPrev());
+				if (i == 0) {
+					current.getNext().setPrev(current.getPrev());
+					current = current.getNext();
+				}else if (i == congaLine.size()-1) {
+					current.getPrev().setNext(current.getNext());
+				}else {
+					current.getPrev().setNext(current.getNext());
+					current.getNext().setPrev(current.getPrev());
+					current = current.getNext();
+				}
 			}
-			current = current.getNext();
 		}
 	}
 
