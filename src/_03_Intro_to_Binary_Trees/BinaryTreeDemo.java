@@ -32,8 +32,44 @@ public class BinaryTreeDemo {
      * 
      */
 
+	
     public static void main(String[] args) {
-
+    	BinaryTreeDemo demo = new BinaryTreeDemo();
+    	
+    	BinaryTree<Integer> tree = new BinaryTree<Integer>();
+    	tree.insert(500);
+    	tree.insert(200);
+    	tree.insert(4000);
+    	tree.insert(5);
+    	tree.insert(501);
+    	tree.insert(40);
+    	tree.insert(1);
+    	tree.insert(300);
+    	tree.insert(4001);
+    	tree.insert(499);
+    	tree.insert(201);
+    	tree.printVertical();
+    	
+    	tree.search(40);
+    	
+    	tree.search(1);
+    	
+    	Node<Integer> node = tree.getRoot();
+    	System.out.println(node.getValue());
+    	
+    	demo.action(node);
+    	System.out.println(node.getValue());
     }
 
+    public void action(Node<Integer> node) {
+    	if (node.getLeft() != null) {
+    		action(node.getLeft());
+    	}
+    	
+    	if (node.getRight() != null) {
+    		action(node.getRight());
+    	}
+    	
+    	node.setValue(node.getValue()*10);
+    }
 }

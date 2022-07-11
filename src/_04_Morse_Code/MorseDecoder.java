@@ -1,6 +1,7 @@
 package _04_Morse_Code;
 
 import _03_Intro_to_Binary_Trees.BinaryTree;
+import _03_Intro_to_Binary_Trees.Node;
 
 public class MorseDecoder {
 
@@ -63,8 +64,19 @@ public class MorseDecoder {
      * english alphabet.
      * 
      */
+    
     void decode() {
-
+    	Node<MorseCode> node = mcTree.getRoot();
+    	getLetter("-.--", node);
     }
-
+    
+    public String getLetter(String code, Node<MorseCode> node) {
+    	
+//------------------------------ Start here next -------------------
+    	// get the switch statement working
+    	switch (node.getValue().compareTo(new MorseCode(code))) :
+    		
+    	return null;
+    }
+    
 }
