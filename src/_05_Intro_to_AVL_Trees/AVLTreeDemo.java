@@ -31,7 +31,16 @@ public class AVLTreeDemo {
      */
 
     public static void main(String[] args) {
-
+    	AVLTree tree = new AVLTree<Integer>();
+    	tree.insert(100);
+    	tree.insert(500);
+    	tree.insert(4);
+    	tree.insert(5);
+    	tree.insert(0);
+    	tree.insert(-1);
+    	tree.insert(6);
+    	tree.insert(3);
+    	tree.printVertical();
     }
 
 }
